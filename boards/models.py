@@ -6,6 +6,9 @@ class Boards (models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=150)
 
+    def __str__(self):
+        return self.name
+
 class Topic (models.Model):
     subject = models.CharField(max_length=250)
     board = models.ForeignKey(Boards, related_name='topic', on_delete=models.CASCADE)
