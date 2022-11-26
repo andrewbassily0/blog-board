@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{%block title%}
+ Create New Topic
+{%endblock%}
+
+{%block breadcrumb %} 
+<table  >
+    <thead >
+   <th class="breadcrumb-item "><a href="{% url 'home' %}"> Boards </a></th>
+   <th class="breadcrumb-item "><a href="{% url 'boards' board.pk %}">{{board.name}} </a> </th>
+   <th class="breadcrumb-item active ">new topic </th>
+    </thead>
+    <thead>
+      <tr>
+         <td> 
+         </td>
+      </tr>
+      <tr>
+        <td>
+            <button type="submit" class="btn btn-success"> New Post</button> 
+        </td>
+      </tr>
+    </thead>
+</table>
+
+
+{%endblock %}
+
+{% block content%}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-success">Post</button>
+  </form>
+{%endblock %}
